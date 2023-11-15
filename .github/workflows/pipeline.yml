@@ -23,7 +23,7 @@ jobs:
       - name: JesTests
         run: npm test
       - name: E2E tests
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v5 #note: this may be overkill, since it installs all the deps again?
         with: 
           command: npm run test:e2e
           start: npm run start-prod
