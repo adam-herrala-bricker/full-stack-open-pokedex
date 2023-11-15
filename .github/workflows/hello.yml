@@ -1,0 +1,15 @@
+#name of the workflow
+name: Hello world!
+
+#what triggers the workflow
+on:
+  push:
+    - master #this is how you do a list in YAML. fun.
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-20.04 #virtual environment to run  the job on
+    steps:
+      - name: Say hello
+        run: | #the "literal block scalar" lets you run something spanning multiple lines
+          echo "Hello World!"
