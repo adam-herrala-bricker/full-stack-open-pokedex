@@ -1,0 +1,20 @@
+name: Deployment pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  simple_deployment_pipeline:
+    runs-on: ubuntu-20.04 #should match whatever it runs on in production
+    steps:
+      #uses --> runs a specific action (a reusable piece of code)
+      - uses: actions/checkout@v3 #"checksout" the source code from Git (setting v3 so doesn't break on update)
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16' #again, same v as production environment
+      - name: Install dependencies #technically, job names are optional
+        run: npm install #starting to look familiar
+      - name: Check style
+        run: npm run eslint
