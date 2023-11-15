@@ -13,7 +13,7 @@ app.get('/version', (req, res) => {
 
 //for doing a health check in RENDER
 app.get('/health', (req, res) => {
-  res.status.send('ok')
+  res.send('ok')
 })
 
 app.listen(PORT, () => {
