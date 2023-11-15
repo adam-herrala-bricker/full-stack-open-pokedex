@@ -28,3 +28,5 @@ jobs:
           command: npm run test:e2e
           start: npm run start-prod
           wait-on: http://localhost:5000
+      - name: Deploy to production
+        run: curl ${{ RENDER_DEPLOY_HOOK }} #hook stored in GitHub repository secrets
