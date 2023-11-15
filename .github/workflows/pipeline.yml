@@ -20,7 +20,7 @@ jobs:
         run: npm run eslint
       - name: Build
         run: npm run build
-      - name: JesTest
+      - name: JesTests
         run: npm test
       - name: E2E tests
         uses: cypress-io/github-action@v5
