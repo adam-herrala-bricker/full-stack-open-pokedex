@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches: [master] #can also do lists this way
+    types: [opened, synchronize] #PR events that trigger the workflow
 
 jobs:
   simple_deployment_pipeline:
@@ -29,4 +32,5 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5000
       - name: Deploy to production
+        if: ${{ github.event_name == 'push'}} #only deploy on push to main, not opening a PR
         run: curl ${{ secrets.RENDER_DEPLOY_HOOK }} #hook stored in GitHub repository secrets
