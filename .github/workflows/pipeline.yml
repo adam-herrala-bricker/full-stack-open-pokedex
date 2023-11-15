@@ -43,8 +43,8 @@ jobs:
         with: 
           fetch-depth: '0'
       - name: Bump version and push tag
-        #NOTE THE "EASY" YAML SYNTAX
-        if: ${{ if and(github.event_name == 'push', not(contains(github.event.commits.message, '#skip')))}} #also only bump version on push to main
+        #NOTE THE SYNTAX ISN'T ACTUALLY YAML BUT SPECIFIC TO GITHUB JESUS FUCKING CHRIST
+        if: ${{ github.event_name == 'push' & !contains(github.event.commits.message, '#skip')}} #also only bump version on push to main
         uses: anothrNick/github-tag-action@1.67.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
