@@ -4,7 +4,8 @@ name: Hello world!
 #what triggers the workflow
 on:
   push:
-    - master #this is how you do a list in YAML. fun.
+    branches:
+      - master #this is how you do a list in YAML. fun.
 
 jobs:
   hello_world_job:
